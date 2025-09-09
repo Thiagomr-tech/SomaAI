@@ -1,0 +1,152 @@
+* {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #f5f5f5;
+      padding: 20px;
+    }
+
+    .container {
+      display: flex;
+      gap: 40px;
+      align-items: stretch;
+      width: 100%;
+      max-width: 1200px;
+      flex-wrap: wrap; /* quebra em telas menores */
+    }
+
+    /* Lado esquerdo (display + operadores) */
+    .lado-esquerdo {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 3px solid #000;
+      border-radius: 16px;
+      padding: 20px;
+      background: #fff;
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .display {
+      border: 3px solid #000;
+      border-radius: 12px;
+      width: 100%;
+      height: 250px;
+      background: #fafafa;
+    }
+
+    .operadores {
+      display: flex;
+      justify-content: space-around;
+      gap: 10px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .operadores .caixa {
+      border: 3px solid #000;
+      border-radius: 12px;
+      flex: 1 1 60px;
+      max-width: 90px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+      background: #fff;
+    }
+
+    .operadores .caixa:hover {
+      background: #ddd;
+    }
+
+    /* Lado direito (números + nomes) */
+    .lado-direito {
+      border: 3px solid #000;
+      border-radius: 16px;
+      padding: 20px;
+      background: #fff;
+      flex: 1;
+      min-width: 280px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .numeros {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .linha-numero {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: nowrap;
+    }
+
+    .linha-numero .caixa {
+      border: 3px solid #000;
+      border-radius: 12px;
+      flex: 1;
+      min-width: 80px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: bold;
+      background: #fff;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .linha-numero .caixa:hover {
+      background: #ddd;
+    }
+
+    .linha-numero .separador {
+      font-size: 20px;
+      font-weight: bold;
+      padding: 0 4px;
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .lado-esquerdo, .lado-direito {
+        width: 100%;
+        max-width: 500px;
+      }
+
+      .display {
+        height: 200px;
+      }
+
+      .operadores .caixa {
+        height: 60px;
+        font-size: 24px;
+      }
+
+      .linha-numero .caixa {
+        height: 45px;
+        font-size: 14px;
+      }
+    }
