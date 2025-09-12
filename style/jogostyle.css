@@ -1,152 +1,171 @@
 * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-    body {
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      background: #f5f5f5;
-      padding: 20px;
-    }
+body {
+  background-image: url('./imagens/verde.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
 
-    .container {
-      display: flex;
-      gap: 40px;
-      align-items: stretch;
-      width: 100%;
-      max-width: 1200px;
-      flex-wrap: wrap; /* quebra em telas menores */
-    }
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;       /* ocupa no mínimo a tela */
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+}
 
-    /* Lado esquerdo (display + operadores) */
-    .lado-esquerdo {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      border: 3px solid #000;
-      border-radius: 16px;
-      padding: 20px;
-      background: #fff;
-      flex: 1;
-      min-width: 280px;
-    }
+.wrapper {
+  display: flex;
+  justify-content: center;  /* centraliza horizontalmente */
+  align-items: center;      /* centraliza verticalmente se houver espaço */
+  flex: 1 0 auto;           /* permite crescer se conteúdo maior */
+  width: 100%;
+}
 
-    .display {
-      border: 3px solid #000;
-      border-radius: 12px;
-      width: 100%;
-      height: 250px;
-      background: #fafafa;
-    }
+.container {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;  /* permite que a altura das caixas seja natural */
+  flex-wrap: wrap;
+  max-width: 1200px;
+}
 
-    .operadores {
-      display: flex;
-      justify-content: space-around;
-      gap: 10px;
-      margin-top: 20px;
-      flex-wrap: wrap;
-    }
+/* Lado esquerdo (display + operadores) */
+.lado-esquerdo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 3px solid #000;
+  border-radius: 16px;
+  padding: 20px;
+  background: #fff;
+  flex: 1;         /* mantém crescimento proporcional */
+  min-width: 800px; /* aumenta o mínimo da largura da caixa esquerda */
+}
 
-    .operadores .caixa {
-      border: 3px solid #000;
-      border-radius: 12px;
-      flex: 1 1 60px;
-      max-width: 90px;
-      height: 80px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 28px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.2s;
-      background: #fff;
-    }
+.display {
+  border: 3px solid #000;
+  border-radius: 12px;
+  width: 100%;
+  height: 600px;
+  background: #fafafa;
+  margin-bottom: 10px;
+}
 
-    .operadores .caixa:hover {
-      background: #ddd;
-    }
+.display2 {
+  border: 3px solid #000;
+  border-radius: 12px;
+  width: 100%;
+  height: 250px;
+  background: #fafafa;
+}
 
-    /* Lado direito (números + nomes) */
-    .lado-direito {
-      border: 3px solid #000;
-      border-radius: 16px;
-      padding: 20px;
-      background: #fff;
-      flex: 1;
-      min-width: 280px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
+.operadores {
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
 
-    .numeros {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
+.operadores .caixa {
+  border: 3px solid #000;
+  border-radius: 12px;
+  flex: 1 1 60px;
+  max-width: 90px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+  background: #fff;
+}
 
-    .linha-numero {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: nowrap;
-    }
+.operadores .caixa:hover {
+  background: #ddd;
+}
 
-    .linha-numero .caixa {
-      border: 3px solid #000;
-      border-radius: 12px;
-      flex: 1;
-      min-width: 80px;
-      height: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 16px;
-      font-weight: bold;
-      background: #fff;
-      cursor: pointer;
-      transition: 0.2s;
-    }
+/* Lado direito (números + nomes) */
+.lado-direito {
+  
+  padding: 20px;
+  background-color: transparent;  /* deixa o fundo transparente */
+  flex: 1;
+  min-width: 280px;
+  min-height: 700px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;  /* ajuste a altura se quiser */
+}
 
-    .linha-numero .caixa:hover {
-      background: #ddd;
-    }
 
-    .linha-numero .separador {
-      font-size: 20px;
-      font-weight: bold;
-      padding: 0 4px;
-    }
+.imagem-direita {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 12px; /* cantos arredondados */
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5); /* sombra */
+}
 
-    /* Responsividade */
-    @media (max-width: 768px) {
-      .container {
-        flex-direction: column;
-        align-items: center;
-      }
+.numeros {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
 
-      .lado-esquerdo, .lado-direito {
-        width: 100%;
-        max-width: 500px;
-      }
+.linha-numero {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: nowrap;
+}
 
-      .display {
-        height: 200px;
-      }
+.linha-numero .caixa {
+  border: 3px solid #000;
+  border-radius: 12px;
+  flex: 1;
+  min-width: 80px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: bold;
+  background: #fff;
+  cursor: pointer;
+  transition: 0.2s;
+}
 
-      .operadores .caixa {
-        height: 60px;
-        font-size: 24px;
-      }
+.linha-numero .caixa:hover {
+  background: #ddd;
+}
 
-      .linha-numero .caixa {
-        height: 45px;
-        font-size: 14px;
-      }
-    }
+.linha-numero .separador {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 0 4px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .lado-esquerdo,
+  .lado-direito {
+    width: 100%;
+    max-width: 500px;
+  }
+
+
+}
