@@ -6,23 +6,27 @@
 
 body {
   background-image: url('./imagens/verde.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: repeat;
 
+ 
+  background-repeat: repeat-x; /* Repete a imagem na horizontal */
+  background-size: auto 100%;  /* Faz a imagem preencher 100% da altura da tela */
+  animation: rolar-fundo 80s linear infinite; /* Aplica a animação (80s para ser bem lenta) */
+  
+  
   display: flex;
   flex-direction: column;
-  min-height: 100vh;       /* ocupa no mínimo a tela */
+  min-height: 100vh;
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 20px;
+  overflow-x: hidden; /* Importante para não criar barra de rolagem horizontal */
 }
 
 .wrapper {
   display: flex;
-  justify-content: center;  /* centraliza horizontalmente */
-  align-items: center;      /* centraliza verticalmente se houver espaço */
-  flex: 1 0 auto;           /* permite crescer se conteúdo maior */
+  justify-content: center;  
+  align-items: center;      
+  flex: 1 0 auto;           
   width: 100%;
 }
 
@@ -174,4 +178,17 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/* ===== ANIMAÇÃO DE FUNDO  ===== */
+@keyframes rolar-fundo {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    /* Move a imagem para a esquerda. 
+       Para um loop perfeito, o valor em pixels deve ser a largura da sua imagem.
+       Ex: Se 'verde.jpg' tiver 1920px de largura, use -1920px. */
+    background-position: -2000px 0;
+  }
 }

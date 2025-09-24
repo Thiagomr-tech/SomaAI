@@ -1,63 +1,107 @@
-   * {
-     margin: 0;
-     padding: 0;
-     box-sizing: border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-   }
+body {
+    background-image: url('./imagens/laranja.jpg');
+    
+    /* 1. A imagem PRECISA se repetir para o efeito funcionar */
+    background-repeat: repeat-x; /* Repete apenas na horizontal */
 
-   body {
-     background-image: url('./imagens/laranja.jpg');
-     background-size: cover;
-     background-position: center;
-     background-repeat: no-repeat;
+       /*'auto 100%' faz a imagem cobrir toda a altura da tela, mantendo sua proporção. */
+    background-size: auto 100%; 
 
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     flex-direction: column;
-     height: 100vh;
-     font-family: Arial, sans-serif;
-   }
+    /* 3. animação */
+    animation: rolar-fundo 60s linear infinite;
 
-   .logo {
-     width: 900px;
-     max-width: 80%;
-     margin-bottom: 200px;
-     /* controla o espaçamento entre logo e botão */
-   }
 
-   h1 {
-     font-size: 3rem;
-     margin-bottom: 50px;
-     color: #222;
-     text-align: center;
-   }
+    /* --- LAYOUT (MANTIDO) --- */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    overflow: hidden; /* Evita que a animação crie uma barra de rolagem */
+}
 
-   .btn {
-  padding: 20px 50px;    /* altura x largura */
-  font-size: 24px;       /* tamanho do texto */
-  text-decoration: none;
-  background-color: #4CAF50;
-  color: white;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: 0.2s;
+/* 4. keyframe */
+@keyframes rolar-fundo {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        /* Faz o fundo se mover para a esquerda. 
+           O valor exato (ex: 1920px) deve ser a largura da sua imagem para um loop perfeito.
+           Se não souber, um valor alto como 2000px também funciona bem. */
+        background-position: -2000px 0;
+    }
+}
 
-   }
+.logo-canto {
+  /* A mágica acontece aqui: fixa o elemento na tela */
+  position: fixed; 
+  
+  /* Distância da parte de baixo da tela */
+  bottom: -100px; 
+  
+  /* Distância da parte direita da tela */
+  right: 20px; 
+  
+  /* Define um tamanho para o logo não ficar muito grande */
+  width: 300px; 
+  height: auto; /* Mantém a proporção da imagem */
+  
+  /* Garante que o logo fique acima de outros elementos, se necessário */
+  z-index: 1000; 
 
-   .btn:hover {
-      background-color: #45a049;
-   }
+  /* --- ADIÇÃO DO SOMBREADO AQUI --- */
+  /* Sintaxe: drop-shadow(offset-x offset-y blur-radius color) */
+  filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.9)); /* Sombra para baixo e para direita */
 
-   /* Responsivo */
-   @media (max-width: 600px) {
-     h1 {
+}
+
+
+.logo {
+    width: 900px;
+    max-width: 80%;
+    margin-bottom: 200px;
+    /* controla o espaçamento entre logo e botão */
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 50px;
+    color: #222;
+    text-align: center;
+}
+
+.btn {
+    padding: 20px 50px;      /* altura x largura */
+    font-size: 24px;         /* tamanho do texto */
+    text-decoration: none;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn:hover {
+     background-color: #45a049;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+    h1 {
        font-size: 2rem;
        margin-bottom: 40px;
-     }
+    }
 
-     .btn {
+    .btn {
        padding: 15px 40px;
        font-size: 1.2rem;
-     }
-   }
+    }
+}
