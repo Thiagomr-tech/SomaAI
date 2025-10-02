@@ -18,12 +18,16 @@
       <div class="lado-esquerdo">
         <div id="cruzadinha-container" class="display"> Espaço para a cruzadinha</div>
 
-        <div id="respostas-container" class="display2"> Espaço para os botoes</div>
+        <div id="respostas-container" class="display2" ondrop="retornarResposta(event)" ondragover="allowDrop(event)">
+          Espaço para os botoes</div>
+
+
       </div>
 
       <!-- Lado direito (números + nomes separados) -->
       <div class="lado-direito">
-        <img src="./style/imagens/legenda.png" alt="Logo" class="imagem-direita">
+        <div class="legenda-container">
+        </div>
       </div>
 
     </div>

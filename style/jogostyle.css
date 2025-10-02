@@ -19,7 +19,7 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 20px;
-  overflow-x: hidden; /* Importante para não criar barra de rolagem horizontal */
+  overflow-x: hidden; /* não criar barra de rolagem horizontal */
 }
 
 .wrapper {
@@ -105,19 +105,84 @@ body {
   min-width: 280px;
   min-height: 700px;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 400px;  /* ajuste a altura se quiser */
+  flex-direction: column; /* Alinha os itens (legenda-container) em coluna */
+  align-items: center; /* Centraliza a caixa da legenda horizontalmente */
+  height: 400px; 
+  
 }
 
+/* Estilos para a nova caixa de Legenda */
+.legenda-container {
+  border: 3px solid #000;
+  border-radius: 16px;
+  padding: 20px;
+  background: #fff;
+  width: 100%; /* Ocupa a largura total do lado-direito */
+  max-width: 300px; /* Limite de largura, ajuste se necessário */
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Espaço entre cada item da legenda */
+  font-family: "Comic Sans MS", cursive, sans-serif; /* A fonte desejada */
+}
 
-.imagem-direita {
+.legenda-item {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Espaço entre o número e o nome */
+}
+
+.legenda-numero {
+  width: 35px; /* Tamanho do círculo do número */
+  height: 35px;
+  border-radius: 50%; /* Torna o background circular */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 18px;
+  color: white; /* Cor padrão do texto no número */
+  /* A cor de fundo será definida pelas classes cor-X */
+}
+
+.legenda-nome {
+  font-weight: bold;
+  font-size: 20px;
+  /* A cor do texto será definida pelas classes cor-X */
+}
+
+/* Cores dos números e nomes na Legenda (reutiliza as classes existentes) */
+/* Para que o nome também pegue a cor, vamos adicionar estas regras */
+.legenda-nome.cor-1 { color: #E63946; }
+.legenda-nome.cor-2 { color: #F4A261; }
+.legenda-nome.cor-3 { color: #E9C46A; }
+.legenda-nome.cor-4 { color: #2A9D8F; }
+.legenda-nome.cor-5 { color: #264653; }
+.legenda-nome.cor-6 { color: #A8DADC; } /* Note que esta cor é clara, talvez mude o 'color: white' padrão para 'color: #333' se o fundo for branco */
+.legenda-nome.cor-7 { color: #457B9D; }
+.legenda-nome.cor-8 { color: #1D3557; }
+.legenda-nome.cor-9 { color: #FCA311; }
+.legenda-nome.cor-10 { color: #9B5DE5; }
+
+/* As classes .resposta.cor-X já definem o background-color para .legenda-numero */
+/* Você pode querer definir a cor do texto para o .legenda-numero explicitamente caso seu .resposta.cor-X não funcione */
+.legenda-numero.cor-1 { background-color: #E63946; color: white; }
+.legenda-numero.cor-2 { background-color: #F4A261; color: white; }
+.legenda-numero.cor-3 { background-color: #E9C46A; color: #333; } /* Exemplo de cor de texto diferente */
+.legenda-numero.cor-4 { background-color: #2A9D8F; color: white; }
+.legenda-numero.cor-5 { background-color: #264653; color: white; }
+.legenda-numero.cor-6 { background-color: #A8DADC; color: #333; }
+.legenda-numero.cor-7 { background-color: #457B9D; color: white; }
+.legenda-numero.cor-8 { background-color: #1D3557; color: white; }
+.legenda-numero.cor-9 { background-color: #FCA311; color: white; }
+.legenda-numero.cor-10 { background-color: #9B5DE5; color: white; }
+
+/* .imagem-direita {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
-  border-radius: 12px; /* cantos arredondados */
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5); /* sombra */
-}
+  border-radius: 12px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+} */
 
 .numeros {
   display: flex;
@@ -175,6 +240,7 @@ body {
 }
 
 #cruzadinha-container {
+  font-family: "Comic Sans MS", cursive, sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -190,5 +256,59 @@ body {
        Para um loop perfeito, o valor em pixels deve ser a largura da sua imagem.
        Ex: Se 'verde.jpg' tiver 1920px de largura, use -1920px. */
     background-position: -2000px 0;
-  }
+  }  
 }
+
+.resposta {
+  width: 40px;
+  height: 40px;
+  border: 1px solid black;
+  border-radius: 50%;   /* deixa redondo */
+  background: #fff;
+  display: flex;
+  justify-content: center; /* centraliza número no círculo */
+  align-items: center;     /* centraliza vertical */
+  cursor: grab;
+  font-weight: bold;
+  font-size: 18px;
+
+  font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+.resposta:active {
+  cursor: grabbing;
+}
+
+#respostas-container {
+  display: flex;
+  flex-wrap: wrap;        /* permite quebrar linha */
+  justify-content: center; /* centraliza na horizontal */
+  align-items: center;     /* centraliza na vertical */
+  gap: 10px;               /* espaço entre os círculos */
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* ===== CORES PARA OS NÚMEROS ===== */
+.resposta.cor-1 { background-color: #E63946; color: white; }
+.resposta.cor-2 { background-color: #F4A261; color: white; }
+.resposta.cor-3 { background-color: #E9C46A; color: #333; }
+.resposta.cor-4 { background-color: #2A9D8F; color: white; }
+.resposta.cor-5 { background-color: #264653; color: white; }
+.resposta.cor-6 { background-color: #A8DADC; color: #333; }
+.resposta.cor-7 { background-color: #457B9D; color: white; }
+.resposta.cor-8 { background-color: #1D3557; color: white; }
+.resposta.cor-9 { background-color: #FCA311; color: white; }
+.resposta.cor-10 { background-color: #9B5DE5; color: white; }
+
+/* Efeito hover para as novas cores */
+.resposta.cor-1:hover { background-color: #c42b39; }
+.resposta.cor-2:hover { background-color: #d1874a; }
+.resposta.cor-3:hover { background-color: #c7a752; }
+.resposta.cor-4:hover { background-color: #218074; }
+.resposta.cor-5:hover { background-color: #1d333d; }
+.resposta.cor-6:hover { background-color: #8dbcbD; }
+.resposta.cor-7:hover { background-color: #38647e; }
+.resposta.cor-8:hover { background-color: #14243b; }
+.resposta.cor-9:hover { background-color: #d98c0d; }
+.resposta.cor-10:hover { background-color: #8247c7; }

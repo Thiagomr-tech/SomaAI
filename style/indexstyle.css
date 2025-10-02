@@ -58,7 +58,6 @@ body {
   z-index: 1000; 
 
   /* --- ADIÇÃO DO SOMBREADO AQUI --- */
-  /* Sintaxe: drop-shadow(offset-x offset-y blur-radius color) */
   filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.9)); /* Sombra para baixo e para direita */
 
 }
